@@ -45,7 +45,7 @@ public class ProdutoService {
 
     public String atualizaEstoque(List<ProdutoPatch> listProdutosPatch) throws ProdutoNotFoundException, ProdutoEmptyException, EstoqueProdutoInsuficienteException {
         for (ProdutoPatch produtoPatch: listProdutosPatch) {
-            ProdutoDTO produtoDTO = verifyIsExistsProduto(produtoPatch.getIdProduto());
+            ProdutoDTO produtoDTO = verifyIsExistsProduto(produtoPatch.getId());
             validaCompra(produtoDTO, produtoPatch);
             int quantidadeAtualizada = produtoDTO.getQuantidade() - produtoPatch.getQuantidade();
             produtoDTO.setQuantidade(quantidadeAtualizada);

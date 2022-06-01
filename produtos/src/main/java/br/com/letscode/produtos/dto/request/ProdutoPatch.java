@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class ProdutoPatch {
 
     @NotEmpty
-    private Long idProduto;
+    private Long id;
     @NotEmpty
     private Integer quantidade;
 
