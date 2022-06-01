@@ -1,22 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://dbpostgresql:5432/produtos
+    username: postgres
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+  application:
+    name: produtos
 eureka:
   instance:
     hostname: localhost
-spring:
-  application:
-    name: produtos
-server:
-  port: 8080
 resilience4j:
   circuitbreaker:
     configs:
       default:
         registerHealthIndicator: true
         slidingWindowSize: 10
-        minimumNumberOfCalls: 3 # mínimo para mudar para o estado ABERTO
+        minimumNumberOfCalls: 3
         permittedNumberOfCallsInHalfOpenState: 3
         automaticTransitionFromOpenToHalfOpenEnabled: true
-        waitDurationInOpenState: 10s # Tempo para aguardar para HALF-OPEN
-        failureRateThreshold: 50 # Quando 50% retornar falha, o estado muda para ABERTO
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
   instances:
     servico:
       baseConfig: default
+server:
+  port: 8080

@@ -1,7 +1,5 @@
-FROM maven:3.8.4-jdk-11
-
-WORKDIR /produtos
-COPY . .
-RUN mvn clean install
-
-CMD mvn spring-boot:run
+FROM openjdk:11
+VOLUME /tmp
+ADD target/produtos-0.0.1-SNAPSHOT.jar produtos.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar","/produtos.jar"]

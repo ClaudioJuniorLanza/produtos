@@ -1,27 +1,22 @@
 package br.com.letscode.produtos.domain;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Produto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
-
-    @Column
     private String nomeProduto;
-    @Column
     private String descricao;
-    @Column
     private Integer quantidade;
-    @Column
     private String modelo;
-    @Column
     private Double valorUnitario;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Marca marca;
 }

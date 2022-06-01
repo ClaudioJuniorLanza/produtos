@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ProdutoResponse {
 
-    private Long idProduto;
+    private Long id;
     private String nomeProduto;
     private Integer quantidade;
     private Double valorUnitario;

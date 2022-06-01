@@ -25,6 +25,4 @@ public class ProdutoDTO {
     private String modelo;
     @NotEmpty
     private Double valorUnitario;
-    @Valid
-    private MarcaDTO marca;
 }

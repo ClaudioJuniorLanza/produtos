@@ -29,7 +29,7 @@ public class ProdutoController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<ProdutoResponse> listAll(){
+    public List<ProdutoDTO> listAll(){
         return produtoService.listAll();
     }
 
@@ -38,7 +38,6 @@ public class ProdutoController {
         return produtoService.save(produtoDTO);
     }
 
-    @CircuitBreaker
     @PatchMapping
     public String atualizaEstoque(@RequestBody List<ProdutoPatch> listProdutoPatch) throws ProdutoNotFoundException, ProdutoEmptyException, EstoqueProdutoInsuficienteException {
         return produtoService.atualizaEstoque(listProdutoPatch);

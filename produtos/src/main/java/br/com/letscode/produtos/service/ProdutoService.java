@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 public class ProdutoService {
 
     private final ProdutoRepository produtoRepository;
-    private final ProdutoMapper produtoMapper = ProdutoMapper.INSTANCE;
+    private final ProdutoMapper produtoMapper;
 
     public Optional<ProdutoResponse> findById(Long id) throws ProdutoNotFoundException {
         return Optional.ofNullable(produtoRepository.findById(id)
@@ -30,10 +30,10 @@ public class ProdutoService {
                 .orElseThrow( () -> new ProdutoNotFoundException(id)));
     }
 
-    public List<ProdutoResponse> listAll(){
+    public List<ProdutoDTO> listAll(){
         return produtoRepository.findAll()
                 .stream()
-                .map(produtoMapper::toResponse)
+                .map(produtoMapper::toDTO)
                 .collect(Collectors.toList());
     }
 
